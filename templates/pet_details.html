@@ -1,0 +1,50 @@
+{%extends "index.html"%}
+
+
+{%block content%}
+<div class="container ">
+    <div class="row">
+        <div class="col-8">
+            <img src="{{pet.photo_url}}" alt="" class="img-thumbnail">
+            <h2>
+                {{pet.name}}
+            </h2>
+            <ul>
+                <li>{{pet.species}}</li>
+                
+                {%if pet.age != None%}
+                <li>{{pet.age}}</li>
+                {%endif%}
+            </ul>
+        </div>
+   
+    </div>
+        
+    <div class="row mt-5">
+        <h3>Update</h3>
+        <form method="POST">
+            {{form.hidden_tag()}}
+        {%for input in form if input.widget.input_type != 'hidden'%}
+            <div>
+                {{input.label}} 
+                {{input}}
+            
+            <span>
+                {%if input.errors%}
+                    {%for error in input.errors%}
+                        <b>{{error}}</b>
+                    {%endfor%}
+                {%endif%}
+            </span>
+            </div>
+                
+        {%endfor%}
+        
+        <input type="submit">
+        </form>
+    </div>
+</div>
+    
+    
+
+{%endblock%}

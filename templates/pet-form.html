@@ -1,0 +1,17 @@
+{%extends 'index.html'%}
+
+{%block content%}
+    <form method="POST">
+        {{form.hidden_tag()}}
+    {%for input in form if input.widget.input_type != 'hidden'%}
+        <p>
+            {{input.label}} 
+            {{input}}
+        </p>
+        
+    {%endfor%}
+    <input type="submit">
+    </form>
+    
+    
+{%endblock%}

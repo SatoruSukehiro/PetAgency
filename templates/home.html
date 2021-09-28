@@ -1,0 +1,23 @@
+{%extends "index.html"%}
+
+{%block content%}
+    {%for pet in pets%}
+    
+            <div class= card style= "width: 18rem;">
+                
+        <img class="car-img-top" src="{{pet.photo_url}}" alt="">
+    
+        <div class="card-body">
+            <a href="/{{pet.id}}">
+               <h5 class="card-title">{{pet.name}}</h5> 
+            </a>
+            {%if pet.available%}
+            <b class=card-text>Available</b>
+            {%endif%}
+        </div>
+    </div>
+   
+
+    {%endfor%}
+    <a href="/add">Add Pet</a>
+{%endblock%}
